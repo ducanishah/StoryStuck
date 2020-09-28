@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://code/Pause.gd" type="Script" id=1]
+[ext_resource path="res://scenes/buttons/pause menu/resumeButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/buttons/main menu/optionsButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/buttons/pause menu/saveButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/buttons/pause menu/exitButton.tscn" type="PackedScene" id=5]
+
+[node name="PauseMenu" type="CanvasLayer"]
+pause_mode = 2
+layer = 0
+
+[node name="Pause" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="Pause"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.352941 )
+
+[node name="ColorRect2" type="ColorRect" parent="Pause"]
+show_behind_parent = true
+margin_left = 125.0
+margin_top = 50.0
+margin_right = 235.0
+margin_bottom = 200.0
+color = Color( 0.627451, 0.627451, 0.627451, 0.705882 )
+
+[node name="ColorRect3" type="ColorRect" parent="Pause/ColorRect2"]
+show_behind_parent = true
+margin_left = -5.0
+margin_top = -5.0
+margin_right = 115.0
+margin_bottom = 155.0
+color = Color( 0, 0, 0, 0.490196 )
+
+[node name="buttons" type="VBoxContainer" parent="Pause"]
+margin_left = 130.0
+margin_top = 50.0
+margin_right = 230.0
+margin_bottom = 200.0
+alignment = 1
+
+[node name="resumeButton" parent="Pause/buttons" instance=ExtResource( 2 )]
+margin_top = 29.0
+margin_right = 100.0
+margin_bottom = 49.0
+
+[node name="optionsButton" parent="Pause/buttons" instance=ExtResource( 3 )]
+margin_top = 53.0
+margin_right = 100.0
+margin_bottom = 73.0
+
+[node name="saveButton" parent="Pause/buttons" instance=ExtResource( 4 )]
+margin_top = 77.0
+margin_right = 100.0
+margin_bottom = 97.0
+
+[node name="exitButton" parent="Pause/buttons" instance=ExtResource( 5 )]
+margin_top = 101.0
+margin_right = 100.0
+margin_bottom = 121.0
+scene_to_load = "res://scenes/menus/TitleScreen.tscn"
+[connection signal="pressed" from="Pause/buttons/resumeButton" to="Pause" method="_on_resumeButton_pressed"]
+[connection signal="pressed" from="Pause/buttons/saveButton" to="Pause" method="_on_saveButton_pressed"]

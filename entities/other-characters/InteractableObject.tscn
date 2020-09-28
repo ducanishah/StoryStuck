@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://entities/other-characters/InteractableObject.gd" type="Script" id=1]
+
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 44.8332
+
+[node name="InteractableObject" type="Area2D" groups=[
+"Interactables",
+]]
+gravity = 0.0
+collision_mask = 2147483650
+script = ExtResource( 1 )
+
+[node name="InteractArea" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="VisibleBit" type="Polygon2D" parent="."]
+polygon = PoolVector2Array( 8.49915, -13.2007, 12.2449, 14.1434, -13.9754, 14.1434, -13.9754, -10.5787 )
+
+[node name="CooldownTimer" type="Timer" parent="."]
+one_shot = true
+[connection signal="body_entered" from="." to="." method="_on_InteractableObject_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_InteractableObject_body_exited"]
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_CooldownTimer_timeout"]
