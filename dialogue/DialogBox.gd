@@ -19,6 +19,15 @@ func load_dialogue(dialogue):
 		visible=true
 		advance_dialogue()
 
+
+func getTextArrayFromFile(fileURL):
+	var file=File.new()
+	file.open(fileURL,File.READ)
+	var text=file.get_as_text()
+	var textArray
+	textArray=JSON.parse(text).result
+	return textArray
+
 func advance_dialogue():
 	if tween_running==true:
 		$Tween.stop($RichTextLabel,"percent_visible")
