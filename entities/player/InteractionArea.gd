@@ -23,7 +23,7 @@ func _on_InteractionArea_area_exited(area):
 		interactables.erase(area)
 
 #if button, tell the closest interactable to do it's thing
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_pressed(("ui_select")) && interactables.size()>0:
 		var closest_interactable=interactables[0]
 		for interactable in interactables:
