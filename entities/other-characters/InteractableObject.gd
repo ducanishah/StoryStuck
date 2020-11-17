@@ -9,6 +9,9 @@ func doInteract(player):
 	if !onCooldown:
 		var my_dialogue=player.get_node("DialogBox").getTextArrayFromFile("res://dialogueFiles/ExampleInteractableObject.txt")
 		player.get_node("DialogBox").load_dialogue(my_dialogue)
+		
+		get_tree().paused = true
+		
 		onCooldown=true
 		$CooldownTimer.start()
 
