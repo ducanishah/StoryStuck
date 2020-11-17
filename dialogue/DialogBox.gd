@@ -45,8 +45,9 @@ func advance_dialogue():
 		visible=false
 		current_dialogue=null
 		dialogue_index=0
+		get_tree().paused = false
 	
 
-func _on_Tween_tween_completed(object, key):
+func _on_Tween_tween_completed(_object, _key):
 	$pointer.visible=true
 	tween_running=false
