@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://code/TitleScreen.gd" type="Script" id=1]
 [ext_resource path="res://visuals/fonts/Adventurer.ttf" type="DynamicFontData" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scenes/buttons/main menu/optionsButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/buttons/main menu/exitButton.tscn" type="PackedScene" id=6]
 [ext_resource path="res://visuals/main menu textures/mainScreen_art.png" type="Texture" id=7]
+[ext_resource path="res://MenuMusic.wav" type="AudioStream" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -42,6 +43,9 @@ margin_left = 10.0
 margin_top = 10.0
 margin_right = -10.0
 margin_bottom = -10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Title" type="Label" parent="Menu"]
 margin_right = 340.0
@@ -120,4 +124,8 @@ color = Color( 0.172549, 0.137255, 0.203922, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+autoplay = true
 [connection signal="pressed" from="Menu/CenterRow/buttons/exitButton" to="." method="_on_exitButton_pressed"]
