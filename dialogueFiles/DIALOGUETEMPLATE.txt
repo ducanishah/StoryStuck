@@ -1,0 +1,57 @@
+Indentation is unnecessary, but I use it because it helps me read it
+Yes, put the quotation marks around the keys as well as the strings
+DO NOT PUT QUOTES AROUND THE GOTO NUMBER
+
+A dialogue Json consists of the base object with one property, dialogue_nodes, an array. Each node in the array represents a conversational "node," or a sequence of things said, then 0-3 options. If 0, the conversation ends after that node. If 1-3, an option MUST be chosen, you can't just walk away from the conversation. An option may have a goto number. If it has a goto, selecting that option will take you to the start of that indices dialogue node in the array. If it does not have a goto, selecting that option will end the conversation.
+
+The base of a dialogue
+
+{"dialogue_nodes":[
+
+]}
+
+A node is composed of a "text" array of strings, listing the messages that node progresses through, and, optionally, an "options" array, listing the 1-3 buttons you can select in the dialogue 
+
+A dialogue with one node, and one message in the node, no options
+{"dialogue_nodes":[
+	{"text":["One node, one message, no options"]}
+]}
+
+A dialogue with one node, two messages, no options
+{"dialogue_nodes":[
+	{"text":["One node, two messages","still no options"]}
+]}
+A dialogue with one node, two messages, one option. This will create an unexitable looping dialogue, don't do it.
+{"dialogue_nodes":[
+	{
+		"text":["One node, two messages","now with one option"],
+		"options": [
+			{"text":"Do it again!","goto":0}
+		]
+	}
+]}
+A dialogue with one node, two options. One loops, the other exits the dialogue if selected because it has no goto.
+{"dialogue_nodes":[
+	{
+		"text":["One node, two messages","now with two options"],
+		"options": [
+			{"text":"Do it again!","goto":0},
+			{"text":"I've had enough"}
+		]
+	}
+]}
+A dialogue with two nodes, two options on the first node. One loops, the other goes to the second node. The second node has no options, and exits the dialogue after playing.
+{"dialogue_nodes":[
+	{
+		"text":["One node, two messages","now with two options"],
+		"options": [
+			{"text":"Do it again!","goto":0},
+			{"text":"Got anyhting else?","goto":1}
+		]
+	},
+	{
+		"text":["Sure do!"]
+	}
+]}
+
+You can expand on this with more nodes, each node having up to three options, options going between various nodes, etc. The example interactable object demonstrates a simple 3-node dialogue with different features, check it out! If you have any questions, feel free to ask me!
