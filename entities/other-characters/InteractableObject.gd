@@ -7,11 +7,7 @@ var onCooldown=false
 #Gets a references to the player in case you need to interact with it
 func doInteract(player):
 	if !onCooldown:
-		var my_dialogue=player.get_node("DialogBox").getTextArrayFromFile("res://dialogueFiles/ExampleInteractableObject.txt")
-		player.get_node("DialogBox").load_dialogue(my_dialogue)
-		
-		get_tree().paused = true
-		
+		player.get_node("DialogueBox").load_dialogue("res://dialogueFiles/ExampleInteractableObject.txt")
 		onCooldown=true
 		$CooldownTimer.start()
 

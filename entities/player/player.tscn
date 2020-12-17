@@ -3,7 +3,7 @@
 [ext_resource path="res://entities/player/player.gd" type="Script" id=1]
 [ext_resource path="res://entities/player/MSPAR-spritesheet-master.png" type="Texture" id=2]
 [ext_resource path="res://entities/player/InteractionArea.gd" type="Script" id=3]
-[ext_resource path="res://dialogue/DialogBox.tscn" type="PackedScene" id=4]
+[ext_resource path="res://dialogue/DialogueBox.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Animation" id=1]
 length = 0.5
@@ -398,10 +398,11 @@ script = ExtResource( 3 )
 rotation = 1.5708
 shape = SubResource( 34 )
 
-[node name="DialogBox" parent="." instance=ExtResource( 4 )]
+[node name="DialogueBox" parent="." instance=ExtResource( 4 )]
 margin_left = -101.498
 margin_top = 65.8409
 margin_right = 98.5017
 margin_bottom = 115.841
+mouse_filter = 0
 [connection signal="area_entered" from="InteractionArea" to="InteractionArea" method="_on_InteractionArea_area_entered"]
 [connection signal="area_exited" from="InteractionArea" to="InteractionArea" method="_on_InteractionArea_area_exited"]

@@ -1,1 +1,21 @@
-["You've been hit by","You've been struck by","A cool dialogue box"]
+{"dialogue_nodes":[
+	{
+	"text":["You've been hit by","You've been struck by","A cool dialogue box"],
+	"options":
+		[
+		{"text":"Laaaaaame!", "goto":1},
+		{"text":"Repeat that?","goto":0},
+		{"text":"Whatever"}
+		]
+	}, 
+	{
+	"text":["Well that was rude!","I worked hard on that you know...","Was it really that bad?"],
+	"options":[
+		{"text":"No, sorry", "goto":2},
+		{"text":"Yes! It was awful!","goto":2}
+		]
+	},
+	{
+	"text":["..."]
+	}
+]}
